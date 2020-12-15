@@ -1,18 +1,58 @@
 
-public class ContaCorrente extends Conta {
-//	Atributos:
-//	private static double CPMF = 0.38;	
+public class ContaCorrente extends Conta implements Transacao {
+/*
+ * Atributos:
+ */
+	private static double CPMF = 0.38;
+	private String cheque;
+	private double valor;
 	
-//	Construtor:
+/*
+ * Getters and Setters:
+ */
+	public static double getCPMF() {
+		return CPMF;
+	}
+
+	public static void setCPMF(double cPMF) {
+		CPMF = cPMF;
+	}
+
+	public String getCheque() {
+		return cheque;
+	}
+
+	public void setCheque(String cheque) {
+		this.cheque = cheque;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	
+
+/*
+ * Construtor:
+ */
 	public ContaCorrente(int numeroConta, Agencia nomeAgencia, String banco, String senha) {
 		super(numeroConta, nomeAgencia, banco, senha);
 	}
 
-//Sobreposição do método abrirConta herdado da classe Conta:
+/*	
+ * Polimorfismo do método abrirConta herdado da classe Conta.
+ * O polimorfismo de sobreposição (override) nos permite reescrever 
+ * nas classes filhas, todavia, os métodos que serão sobrepostos, 
+ * devem possuir a mesma assinatura da classe Mãe.
+ */
+	
 	@Override
 	public void abrirConta(String tipoConta) {
 		if(this.getStatusConta() == false) {
-//A preferência do java é por equals(), todavia, '==' funciona.
+			//A preferência do java é por equals(), todavia, '==' funciona.
 			if(tipoConta == "CC") {
 				this.setTipoConta(tipoConta);
 				this.setStatusConta(true);
@@ -26,13 +66,32 @@ public class ContaCorrente extends Conta {
 			System.out.println("Conta já existe");
 		}
 }
+
+/*
+	Polimorfismo do tipo sobrecarga (overload) que consiste em criar variações de um mesmo método.
+	Ou seja, mesma assinatura (quantidade de variáveis).
 	
-/*	Método sobrescrito da classe Conta, pois, o saque realizado numa corrente
-//	difere de um saque realizado numa conta poupança.
+
+	Depósito: ele pode depositar qualquer valor. Esses valores podem ser em cheque 
+	(Recebe uma String no estilo "Dezesseis reais@16,00", separadas por @); podem ser em dinheiro, 
+	no caso um valor real.
+ 
+*/
+	
 	@Override
-	public void sacarConta(float valor) {
-//		super.sacarConta(valor);
+	public void depositar(String cheque) {
+		this.cheque = cheque;
 		
+	}
+	
+	@Override
+	public void depositar(double valor) {
+		this.valor = valor;
+		
+	}
+	
+	@Override
+	public void sacar() {
 		if(this.getStatusConta()) {
 			if(this.getSaldoConta() >= getValor()) {
 				this.setSaldoConta(this.getSaldoConta() - (valor + (valor * this.CPMF)));
@@ -43,6 +102,10 @@ public class ContaCorrente extends Conta {
 		}else {
 			System.out.println("Conta fechada!");
 		}
+	}
+
+	@Override
+	public void transferir() {
 		
-	}*/
+	}
 }
