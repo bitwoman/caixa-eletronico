@@ -7,32 +7,13 @@ public abstract class Cliente {
  * Relacionamento de Associação: quando se tem um objeto como atributo de outro.
  * Cliente possui como atributo a classe Conta.
  */
+	protected String nomeCliente, enderecoClinte, telefoneCliente;
+	protected double rendaCliente;
+	protected long cepCliente;
 	protected Agencia nomeAgencia;
 	protected Conta numeroConta, senha;
-	
-/*
- * Método personalizado: - retirada, depósito, transferência.
- */
-	public void transacao(String tipoTransacao, float valor) {
-		
-		switch (tipoTransacao) {
 
-	        case "transferir":
-	            System.out.println("Transferência");
-	            
-	           
-	            break;
-	        case "sacar":
-	            System.out.println("Saque");
 	
-	            break;
-	        case "depositar":
-	            System.out.println("Depósito");
-	            
-	            break;
-		}
-	}
-
 /*
  * Getters and Setters:
  */
@@ -59,4 +40,67 @@ public abstract class Cliente {
 	public void setSenha(Conta senha) {
 		this.senha = senha;
 	}
+
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+
+	public String getEnderecoClinte() {
+		return enderecoClinte;
+	}
+
+	public void setEnderecoClinte(String enderecoClinte) {
+		this.enderecoClinte = enderecoClinte;
+	}
+
+	public String getTelefoneCliente() {
+		return telefoneCliente;
+	}
+
+	public void setTelefoneCliente(String telefoneCliente) {
+		this.telefoneCliente = telefoneCliente;
+	}
+
+	public double getRendaCliente() {
+		return rendaCliente;
+	}
+
+	public void setRendaCliente(double rendaCliente) {
+		this.rendaCliente = rendaCliente;
+	}
+
+	public long getCepCliente() {
+		return cepCliente;
+	}
+
+	public void setCepCliente(long cepCliente) {
+		this.cepCliente = cepCliente;
+	}
+
+/*
+ * Método personalizado: - retirada, depósito, transferência.
+ */
+	public void transacao(String tipoTransacao, float valor) {
+			
+		switch (tipoTransacao) {
+
+	        case "transferir":
+	            System.out.println("Transferência");
+	            
+	           
+	            break;
+	        case "sacar":
+	            System.out.println("Saque");
+	
+	            break;
+	        case "depositar":
+	            System.out.println("Depósito");
+	            
+	            break;
+		}
+	}	
 }

@@ -1,11 +1,9 @@
 
-public class ContaCorrente extends Conta implements Transacao {
+public class ContaCorrente extends Conta {
 /*
  * Atributos:
  */
 	private static double CPMF = 0.38;
-	private String cheque;
-	private double valor;
 	
 /*
  * Getters and Setters:
@@ -17,23 +15,6 @@ public class ContaCorrente extends Conta implements Transacao {
 	public static void setCPMF(double cPMF) {
 		CPMF = cPMF;
 	}
-
-	public String getCheque() {
-		return cheque;
-	}
-
-	public void setCheque(String cheque) {
-		this.cheque = cheque;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-	
 
 /*
  * Construtor:
@@ -78,13 +59,13 @@ public class ContaCorrente extends Conta implements Transacao {
  
 */
 	
-	@Override
+	/*@Override
 	public void depositar(String cheque) {
 		this.cheque = cheque;
 		
 	}
 	
-	@Override
+	
 	public void depositar(double valor) {
 		this.valor = valor;
 		
@@ -108,4 +89,6 @@ public class ContaCorrente extends Conta implements Transacao {
 	public void transferir() {
 		
 	}
+
+*/
 }

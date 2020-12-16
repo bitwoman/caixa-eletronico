@@ -1,35 +1,65 @@
 public class Conta {
-//	Atributos:
-	private int numeroConta;
-    private Agencia nomeAgencia;
+/*
+ * 	Atributos:
+ */
+	private long numeroConta;
+	private int quantidadeUsuarios;
+    private Agencia agencia;
     private String banco, senha, tipoConta, nomeCliente;
-    private double saldoConta, valor;
+    private double saldoConta;
     private boolean statusConta;
 
+/*
+ * To String
+ */
+    @Override
+	public String toString() {
+    	String c = "Conta [";
+		
+    	c += "numeroConta = " + numeroConta;
+		c += ", nomeCliente = " + nomeCliente;
+		c += ", saldoConta = " + saldoConta;
+		c += "]";
+		
+    	return c;
+	}
     
-//    Construtor:
-    public Conta(int numeroConta, Agencia nomeAgencia, String banco, String senha) {
+    
+/*
+ *    Construtor:
+ */
+    public Conta(int numeroConta, Agencia agencia, String banco, String senha) {
   		this.numeroConta = numeroConta;
-  		this.nomeAgencia = nomeAgencia;
+  		this.agencia = agencia;
   		this.banco = banco;
   		this.senha = senha;
   		this.saldoConta = 0;
   		this.statusConta = false;
-  		this.valor = 0;
+  		this.quantidadeUsuarios = 0;
   	}
     
-    
-//  Getters and Setters:
-	public int getNumeroConta() {
+
+/*
+ *   Getters and Setters:
+ */
+	public long getNumeroConta() {
 		return numeroConta;
 	}
 
-	public double getValor() {
-		return valor;
+	public void setNumeroConta(long numeroConta) {
+		if (numeroConta > 0) {
+            this.numeroConta = numeroConta;
+        } else {
+            this.numeroConta = 0;
+        }
+	}
+	
+	public int getQuantidadeUsuarios() {
+		return quantidadeUsuarios;
 	}
 
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setQuantidadeUsuarios(int quantidadeUsuarios) {
+		this.quantidadeUsuarios = quantidadeUsuarios;
 	}
 
 	public String getNomeCliente() {
@@ -40,16 +70,12 @@ public class Conta {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
+	public Agencia getAgencia() {
+		return agencia;
 	}
 
-	public Agencia getNomeAgencia() {
-		return nomeAgencia;
-	}
-
-	public void setNomeAgencia(Agencia nomeAgencia) {
-		this.nomeAgencia = nomeAgencia;
+	public void setNomeAgencia(Agencia agencia) {
+		this.agencia = agencia;
 	}
 
 	public String getBanco() {
@@ -81,7 +107,11 @@ public class Conta {
 	}
 
 	public void setSaldoConta(double saldoConta) {
-		this.saldoConta = saldoConta;
+		 if (saldoConta > 0) {
+	            this.saldoConta = saldoConta;
+	     }else{
+	        	this.saldoConta = 0;
+          }
 	}
 
 	public boolean getStatusConta() {
@@ -93,7 +123,13 @@ public class Conta {
 	}
 	
 	
-//	Métodos personalizados:
+/*
+ * 	MÉTODOS PERSONALIZADOS
+ */
+	
+/*
+ * Abrir conta
+ */
 	public void abrirConta(String tipoConta) {
 		this.setTipoConta(tipoConta);
 		this.setStatusConta(true);
@@ -108,6 +144,10 @@ public class Conta {
 		}
 	}
 	
+	
+/*
+ * Fechar conta
+ */
 	public void fecharConta() {
 		if(saldoConta > 0) {
 			System.out.println("Ainda há dinheiro.");
@@ -119,13 +159,34 @@ public class Conta {
 		}
 	}
 	
-	public void statusAtualConta() {
-		System.out.println("\n================================\n");
-		System.out.println("Conta: " + this.getNumeroConta());
-		System.out.println("Tipo: " + this.getTipoConta());
-		System.out.println("Dono: " + this.getNomeCliente());
-		System.out.println("Saldo: " + this.getSaldoConta());
-		System.out.println("Status: " + this.getStatusConta());
-	}
 
+/*
+ * Depositar
+ */
+	public void depositar(double valor) {
+		this.saldoConta += valor;
+	}
+	
+	
+/*
+ * Sacar
+ */
+	public boolean sacar(double valor) {
+		if((this.saldoConta - valor) >= 0) {
+			this.saldoConta -= valor;
+			return true;
+		}
+		return false;
+	} 
+	
+	
+/*
+ * Validar a senha informada
+ */
+	public boolean validarSenha(String senha) {
+        if (getSenha().equals(senha)) {
+            return true;
+        }
+        return false;
+    }
 }

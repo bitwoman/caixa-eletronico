@@ -1,57 +1,63 @@
 public class ClienteFisico extends Cliente {
-//	Atributos:
-	protected String nome, sobrenome, cpf, sexo;
+/*
+ * Atributos:
+ */
+	protected long cpfCliente, rgCliente;
 	protected int idade;
 	
-	
-//	Construtor:
-	public ClienteFisico(String nome, String sobrenome, String cpf, String sexo, int idade) {
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.cpf = cpf;
-		this.sexo = sexo;
+/*
+ * 	Construtor:
+ */
+	public ClienteFisico(long cpfCliente, long rgCliente, int idade) {
+		this.cpfCliente = cpfCliente;
+		this.rgCliente = rgCliente;
 		this.idade = idade;
 	}
 	
+/*
+ * 	Getters and Setters:
+ */
+	public long getCpfCliente() {
+		return cpfCliente;
+	}
+
+	public void setCpfCliente(long cpfCliente) {
+		this.cpfCliente = cpfCliente;
+	}
 	
-//	Getters and Setters:
-	public String getNome() {
-		return nome;
+	public long getRgCliente() {
+		return rgCliente;
 	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	
+	public void setRgCliente(long rgCliente) {
+		this.rgCliente = rgCliente;
 	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
+	
 	public int getIdade() {
 		return idade;
 	}
-
+	
 	public void setIdade(int idade) {
 		this.idade = idade;
-	}	
+	}
+	
+/*
+ * MÉTODOS PERSONALIZADOS
+ */
+	
+/*
+ * Registrar Cliente:
+ */
+	public void registrarCliente() {
+		
+	}
+	
+	public void validarCpf() {
+		
+	}
+	
+	public void consultarCpf() {
+		
+	}
+	
 }

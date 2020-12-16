@@ -1,18 +1,22 @@
 public class ClienteJuridico extends Cliente {
-//	Atributos:
+/*
+ * 	Atributos:
+ */
 	protected int CNPJ;
 	protected String razaoSocial, nomeFantasia;
 	
-	
-//	Construtor:
+/*
+ * 	Construtor:
+ */
 	public ClienteJuridico(int cNPJ, String razaoSocial, String nomeFantasia) {
 		CNPJ = cNPJ;
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
 	}
 	
-
-//	Getters and Setters:
+/*
+ * 	Getters and Setters:
+ */
 	public int getCNPJ() {
 		return CNPJ;
 	}
@@ -35,5 +39,21 @@ public class ClienteJuridico extends Cliente {
 	
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
-	}	
+	}
+	
+/*
+ * MÉTODOS PERSONALIZADOS 
+ */
+	
+	public void registrarCliente() {
+		
+	}
+	
+	public void validarCnpj() {
+		
+	}
+	
+	public void consultarCnpj() {
+		
+	}
 }
