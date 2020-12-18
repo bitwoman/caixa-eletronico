@@ -1,33 +1,51 @@
 public abstract class Transacao {	
 	
-/* 	
- * Interface criada para que estes métodos sejam implementados de diferentes 
- * formas nas classes de conta corrente e conta poupança.
- *
-*/	
-	
-//	Implementar:
-	
-	public void sacar() {
-		
-	}
+/*
+ * MÉTODOS PERSONALIZADOS
+ */
 	
 	
-	public void depositar() {
-		
-	}
-	
-	
-	public void transferir() {
-		
-	}
-
-	
-	/*private static void sacar(Conta conta, double valor) {
-		if(conta.sacar(valor)) {
-			System.out.println("Saque efetuado com sucesso! Saldo atualizado: " + conta.getSaldoConta());
+/*
+ * Método sacar	
+ */
+	public void sacar(Conta conta, double valor) {
+		if(conta.getStatusConta()) {
+			if(conta.getSaldoConta() >= valor) {
+				conta.setSaldoConta(conta.getSaldoConta() - valor);
+				System.out.println("Saque realizado na conta: " + conta.getNumeroConta() + conta);
+				System.out.println("Saldo atualizado: " + conta.getSaldoConta());
+			}else {
+				System.out.println("Saldo insuficiente!");
+				System.out.println("Saldo: " + conta.getSaldoConta());
+			}
 		}else {
-			System.out.println("Saldo insuficiente para o saque ser realizado: " + conta.getSaldoConta());
+			System.out.println("Conta fechada!");
 		}
-	}*/
+	}
+	
+	
+/*
+ * Método depositar	
+ */
+	public void depositar(Conta conta, float valor) {
+		if(conta.getStatusConta()) {
+			conta.setSaldoConta(conta.getSaldoConta() + valor);
+			System.out.println("Depósito feito na conta: " + conta.getNumeroConta());
+		}else {
+			System.out.println("Impossível depositar numa conta fechada!");
+		}
+	}
+	
+	
+/*
+ * Método transferir
+ */
+	public void transferir(Conta contaDestino, float valor) {
+		if(contaDestino.getStatusConta()) {
+			contaDestino.setSaldoConta(contaDestino.getSaldoConta() + valor);
+			System.out.println("Transferência realizada para a conta: " + contaDestino.getNumeroConta());
+		}else {
+			System.out.println("Impossível depositar numa conta fechada!");
+		}
+	}
 }

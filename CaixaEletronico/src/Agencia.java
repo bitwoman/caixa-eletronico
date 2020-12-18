@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Agencia {
 /*
@@ -6,8 +7,12 @@ public class Agencia {
 	private String nomeAgencia;
 	private int numeroAgencia;
 
+/*
+ * Array list de Agencias
+ */
+	 ArrayList <Agencia> agencias = new ArrayList<Agencia>();
 	
-	
+		
 /*
  * Construtor
  */
@@ -39,4 +44,15 @@ public class Agencia {
 		this.numeroAgencia = numeroAgencia;
 	}
 	
+	
+/*
+ * 	MÉTODOS PERSONALIZADOS
+ */
+	
+/*
+ * Adicionar Agencia
+ */
+	public void adicionarAgencia(Agencia agencia) {
+    	agencias.add(agencia);
+    }
 }

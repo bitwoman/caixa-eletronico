@@ -9,12 +9,13 @@ public class Conta extends Transacao {
     private String banco, tipoConta;
     private double saldoConta;
     private boolean statusConta;
-    
+
+
+/*
+ * Array list de clientes
+ */
     ArrayList <Cliente> clientes = new ArrayList<Cliente>();
     
-    public void qualquernome () {
-    	clientes.size();
-    }
 
 /*
  * To String
@@ -42,11 +43,6 @@ public class Conta extends Transacao {
   		this.statusConta = false;
 
   	}
-    
-
-    public void adicionarCliente(Cliente cliente) {
-    	clientes.add(cliente);
-    }
     
 
 /*
@@ -150,7 +146,17 @@ public class Conta extends Transacao {
  * Validar a senha informada
  */
 	public boolean validarSenha(String senha) {
-//		Retorna true/false:
+/*
+ * 	Retorna true/false:
+ */
 		return senha.equals(senha);
+    }
+	
+	
+/*
+ * Adicionar cliente
+ */
+	public void adicionarCliente(Cliente cliente) {
+    	clientes.add(cliente);
     }
 }

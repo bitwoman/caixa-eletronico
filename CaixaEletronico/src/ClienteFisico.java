@@ -46,18 +46,21 @@ public class ClienteFisico extends Cliente {
  */
 	
 /*
- * Registrar Cliente:
+ * Método de validar CPF
  */
-	public void registrarCliente() {
-		
+	public boolean validarCpf(long cpfCliente) {
+		if(cpfCliente == cpfCliente) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
-	public void validarCpf() {
-		
-	}
 	
+/*
+ * Método de consultar CPF
+ */
 	public void consultarCpf() {
 		
 	}
-	
 }
