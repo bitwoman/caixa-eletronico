@@ -6,6 +6,20 @@ public class ContaCorrente extends Conta {
 	private static double CPMF = 0.38;
 	
 /*
+ * To String
+ */
+	@Override
+	public String toString() {
+		String c = "Conta Corrente [";
+		
+    	c += super.toString();
+		c += "]";
+		
+    	return c;
+	}
+	
+	
+/*
  * Getters and Setters:
  */
 	public static double getCPMF() {
@@ -48,33 +62,24 @@ public class ContaCorrente extends Conta {
 		}
 }
 
+	
 /*
-	Polimorfismo do tipo sobrecarga (overload) que consiste em criar variações de um mesmo método.
-	Ou seja, mesma assinatura (quantidade de variáveis).
-	
+ * Polimorfismo do tipo sobrecarga (overload) que consiste em criar variações de um mesmo método.
+ * Ou seja, mesma assinatura (quantidade de variáveis).
+ * 
+ * Depósito: ele pode depositar qualquer valor. Esses valores podem ser em cheque 
+ * (Recebe uma String no estilo "Dezesseis reais@16,00", separadas por @); podem ser em dinheiro, 
+ * no caso um valor real.
+ */
 
-	Depósito: ele pode depositar qualquer valor. Esses valores podem ser em cheque 
-	(Recebe uma String no estilo "Dezesseis reais@16,00", separadas por @); podem ser em dinheiro, 
-	no caso um valor real.
- 
-*/
 	
-	/*@Override
-	public void depositar(String cheque) {
-		this.cheque = cheque;
-		
-	}
-	
-	
-	public void depositar(double valor) {
-		this.valor = valor;
-		
-	}
-	
+/*
+ * Sacar
+ *
 	@Override
-	public void sacar() {
+	public boolean sacar(double valor) {
 		if(this.getStatusConta()) {
-			if(this.getSaldoConta() >= getValor()) {
+			if(this.getSaldoConta() >= valor) {
 				this.setSaldoConta(this.getSaldoConta() - (valor + (valor * this.CPMF)));
 				System.out.println("Saque realizado na conta de " + this.getNomeCliente());
 			}else {
@@ -83,12 +88,6 @@ public class ContaCorrente extends Conta {
 		}else {
 			System.out.println("Conta fechada!");
 		}
-	}
-
-	@Override
-	public void transferir() {
-		
-	}
-
-*/
+		return super.sacar(valor);
+	}*/
 }

@@ -1,13 +1,20 @@
-public class Conta {
+import java.util.ArrayList;
+
+public class Conta extends Transacao {
 /*
  * 	Atributos:
  */
 	private long numeroConta;
-	private int quantidadeUsuarios;
     private Agencia agencia;
-    private String banco, senha, tipoConta, nomeCliente;
+    private String banco, tipoConta;
     private double saldoConta;
     private boolean statusConta;
+    
+    ArrayList <Cliente> clientes = new ArrayList<Cliente>();
+    
+    public void qualquernome () {
+    	clientes.size();
+    }
 
 /*
  * To String
@@ -17,7 +24,6 @@ public class Conta {
     	String c = "Conta [";
 		
     	c += "numeroConta = " + numeroConta;
-		c += ", nomeCliente = " + nomeCliente;
 		c += ", saldoConta = " + saldoConta;
 		c += "]";
 		
@@ -32,11 +38,15 @@ public class Conta {
   		this.numeroConta = numeroConta;
   		this.agencia = agencia;
   		this.banco = banco;
-  		this.senha = senha;
   		this.saldoConta = 0;
   		this.statusConta = false;
-  		this.quantidadeUsuarios = 0;
+
   	}
+    
+
+    public void adicionarCliente(Cliente cliente) {
+    	clientes.add(cliente);
+    }
     
 
 /*
@@ -53,22 +63,6 @@ public class Conta {
             this.numeroConta = 0;
         }
 	}
-	
-	public int getQuantidadeUsuarios() {
-		return quantidadeUsuarios;
-	}
-
-	public void setQuantidadeUsuarios(int quantidadeUsuarios) {
-		this.quantidadeUsuarios = quantidadeUsuarios;
-	}
-
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
 
 	public Agencia getAgencia() {
 		return agencia;
@@ -84,14 +78,6 @@ public class Conta {
 
 	public void setBanco(String banco) {
 		this.banco = banco;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getTipoConta() {
@@ -158,35 +144,13 @@ public class Conta {
 			System.out.println("Conta fechada.");
 		}
 	}
-	
 
-/*
- * Depositar
- */
-	public void depositar(double valor) {
-		this.saldoConta += valor;
-	}
-	
-	
-/*
- * Sacar
- */
-	public boolean sacar(double valor) {
-		if((this.saldoConta - valor) >= 0) {
-			this.saldoConta -= valor;
-			return true;
-		}
-		return false;
-	} 
-	
 	
 /*
  * Validar a senha informada
  */
 	public boolean validarSenha(String senha) {
-        if (getSenha().equals(senha)) {
-            return true;
-        }
-        return false;
+//		Retorna true/false:
+		return senha.equals(senha);
     }
 }
