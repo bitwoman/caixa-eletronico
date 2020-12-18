@@ -11,7 +11,8 @@ public abstract class Cliente {
 	protected double rendaCliente;
 	protected long cepCliente;
 	protected Agencia nomeAgencia;
-	protected Conta numeroConta, senha;
+	protected Conta numeroConta; 
+	protected long senha;
 
 	
 /*
@@ -33,11 +34,11 @@ public abstract class Cliente {
 		this.numeroConta = numeroConta;
 	}
 
-	public Conta getSenha() {
+	public long getSenha() {
 		return senha;
 	}
 
-	public void setSenha(Conta senha) {
+	public void setSenha(long senha) {
 		this.senha = senha;
 	}
 
@@ -83,7 +84,7 @@ public abstract class Cliente {
 
 /*
  * Método personalizado: - retirada, depósito, transferência.
- */
+ *
 	public void transacao(String tipoTransacao, float valor) {
 			
 		switch (tipoTransacao) {
@@ -102,5 +103,6 @@ public abstract class Cliente {
 	            
 	            break;
 		}
-	}	
+	}
+	*/	
 }

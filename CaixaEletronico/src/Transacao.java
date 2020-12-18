@@ -37,6 +37,12 @@ public abstract class Transacao {
 	}
 	
 	
+	public void depositar(Conta conta, String cheque) {
+		
+		
+	}
+	
+	
 /*
  * Método transferir
  */

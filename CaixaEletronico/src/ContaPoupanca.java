@@ -30,8 +30,8 @@ public class ContaPoupanca extends Conta {
 /*
  * Construtor:
  */
-	public ContaPoupanca(int numeroConta, Agencia nomeAgencia, String banco, String senha) {
-		super(numeroConta, nomeAgencia, banco, senha);
+	public ContaPoupanca(int numeroConta, String tipoConta, Agencia nomeAgencia, String banco, String senha) {
+		super(numeroConta, tipoConta, nomeAgencia, banco, senha);
 	}
 
 

@@ -26,7 +26,9 @@ public class Conta extends Transacao {
 		
     	c += "numeroConta = " + numeroConta;
 		c += ", saldoConta = " + saldoConta;
+		c += ", statusContaAberta = " + statusConta;
 		c += "]";
+		c += "\n";
 		
     	return c;
 	}
@@ -35,13 +37,13 @@ public class Conta extends Transacao {
 /*
  *    Construtor:
  */
-    public Conta(int numeroConta, Agencia agencia, String banco, String senha) {
+    public Conta(int numeroConta, String tipoConta, Agencia agencia, String banco, String senha) {
   		this.numeroConta = numeroConta;
   		this.agencia = agencia;
   		this.banco = banco;
   		this.saldoConta = 0;
   		this.statusConta = false;
-
+  		this.tipoConta = tipoConta;
   	}
     
 
@@ -130,7 +132,7 @@ public class Conta extends Transacao {
 /*
  * Fechar conta
  */
-	public void fecharConta() {
+	public void fecharConta(long numeroConta) {
 		if(saldoConta > 0) {
 			System.out.println("Ainda há dinheiro.");
 		}else if(this.getSaldoConta()<0){
@@ -141,6 +143,18 @@ public class Conta extends Transacao {
 		}
 	}
 
+	
+/*
+ * Validar número da conta informado
+ */
+	public boolean validarNroConta(long nroConta) {
+		if(nroConta == nroConta) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	
 /*
  * Validar a senha informada

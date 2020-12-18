@@ -33,8 +33,8 @@ public class ContaCorrente extends Conta {
 /*
  * Construtor:
  */
-	public ContaCorrente(int numeroConta, Agencia nomeAgencia, String banco, String senha) {
-		super(numeroConta, nomeAgencia, banco, senha);
+	public ContaCorrente(int numeroConta, String tipoConta, Agencia nomeAgencia, String banco, String senha) {
+		super(numeroConta, tipoConta, nomeAgencia, banco, senha);
 	}
 
 /*	
