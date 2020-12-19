@@ -142,19 +142,18 @@ public class Conta extends Transacao {
 			System.out.println("Conta fechada.");
 		}
 	}
-
+	
 	
 /*
- * Validar número da conta informado
+ * Validar numero conta
  */
-	public boolean validarNroConta(long nroConta) {
-		if(nroConta == nroConta) {
+	public boolean validarNroConta(long numeroConta) {
+		if(numeroConta == numeroConta) {
 			return true;
 		}else {
 			return false;
 		}
 	}
-	
 	
 /*
  * Validar a senha informada

@@ -39,28 +39,5 @@ public class ClienteFisico extends Cliente {
 	
 	public void setIdade(int idade) {
 		this.idade = idade;
-	}
-	
-/*
- * MÉTODOS PERSONALIZADOS
- */
-	
-/*
- * Método de validar CPF
- */
-	public boolean validarCpf(long cpfCliente) {
-		if(cpfCliente == cpfCliente) {
-			return true;
-		}else {
-			return false;
-		}
-	}
-	
-	
-/*
- * Método de consultar CPF
- */
-	public void consultarCpf() {
-		
-	}
+	}	
 }

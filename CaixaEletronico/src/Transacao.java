@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Transacao {	
 	
 /*
@@ -36,22 +38,40 @@ public abstract class Transacao {
 		}
 	}
 	
-	
+/*
+ * Depósito: ele pode depositar qualquer valor. Esses valores podem ser em cheque 
+ * (Recebe uma String no estilo "Dezesseis reais@16,00", separadas por @); podem ser em dinheiro, no caso um valor real.
+ */
 	public void depositar(Conta conta, String cheque) {
+		String[] cheques = cheque.split("\\@");
 		
+		String valorString = cheques[1];
+		float valorCheque = Float.parseFloat(cheques[1]);
 		
+		if(conta.getStatusConta()) {
+			conta.setSaldoConta(conta.getSaldoConta() + valorCheque);
+			System.out.println("Depósito feito na conta: " + conta.getNumeroConta());
+		}else {
+			System.out.println("Impossível depositar numa conta fechada!");
+		}
 	}
 	
 	
 /*
  * Método transferir
  */
-	public void transferir(Conta contaDestino, float valor) {
-		if(contaDestino.getStatusConta()) {
-			contaDestino.setSaldoConta(contaDestino.getSaldoConta() + valor);
-			System.out.println("Transferência realizada para a conta: " + contaDestino.getNumeroConta());
-		}else {
-			System.out.println("Impossível depositar numa conta fechada!");
+	public void transferir(Conta contaOrigem, Conta contaDestino, float valorTransferencia) {
+		if(contaOrigem.getStatusConta()) {
+			contaOrigem.sacar(contaOrigem, valorTransferencia);
+			System.out.println("Valor retirado, saldo atualizado: " + contaOrigem.getSaldoConta());
+	
+			if(contaDestino.getStatusConta()) {
+				contaDestino.setSaldoConta(contaDestino.getSaldoConta() + valorTransferencia);
+				System.out.println("Transferência de " + valorTransferencia + " reais, para a conta " 
+								   + contaDestino.getNumeroConta());
+			}else {
+				System.out.println("Impossível depositar numa conta fechada!");
+			}
 		}
 	}
 }

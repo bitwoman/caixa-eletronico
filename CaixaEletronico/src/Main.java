@@ -44,11 +44,12 @@ public class Main {
 		System.out.println(" ============= BEM VINDO =============");
 		System.out.println("Qual operação deseja realizar? \n");
 		System.out.println(" [1] Fazer login;\n [2] Abrir conta;\n "
-						 + "[3] Fechar conta;\n [4] Adicionar cliente a uma conta. \n");
+						 + "[3] Fechar conta;\n [4] Adicionar cliente a uma conta\n"
+						 + "[5] Fazer logout\n [6] Sacar\n "
+						 + "[7] Depositar\n [8] Transferir");
 			
 		int tipoOperacao = entradaDados.nextInt();
 	
-		
 		while(true) {
 			switch (tipoOperacao) {
 		        case 1: 
@@ -115,7 +116,80 @@ public class Main {
 		        	}
 		        	
 		        	break;
-			}
+		        case 5:
+		        	System.out.println("Deseja fazer logout? [S/N]");
+		        	String a = entradaDados.next().toUpperCase();
+		        	
+		        	if(a == "S") {
+		        		if(statusLogin == true) {
+		        			statusLogin = false;
+		        			System.out.println("Até mais.");
+		        		}else {
+		        			System.out.println("A conta não está logada.");
+		        		}
+		        	}else {
+		        		System.out.println("Continue navegando..");
+		        	}
+		        	
+		        	break;
+		        case 6:
+		        	System.out.println("Sacar");
+		        	System.out.println("Deseja sacar? ");
+		        	String s = entradaDados.next().toUpperCase();
+		        	
+		        	System.out.println("Qual o valor do saque? ");
+		        	float valorSaque = entradaDados.nextFloat();
+		        	
+		        	if(s == "S") {
+		        		conta01.sacar(conta01, valorSaque);
+		        	}else {
+		        		System.out.println("Bye");
+		        	}
+		        	
+		        	break;
+		        case 7:
+		        	System.out.println("Depositar");
+		        	System.out.println("Deseja depositar? ");
+		        	String d = entradaDados.next().toUpperCase();
+		        	
+		        	if(d == "S") {
+			        	System.out.println("Qual o tipo de depósito? Dinheiro [D] ou Cheque [C]? ");
+			        	String tipoDeposito = entradaDados.next();
+		        		
+			        	if(tipoDeposito.equals("D")) {
+			        		System.out.println("Qual o valor do depósito? ");
+				        	float valorDeposito = entradaDados.nextFloat();
+			        		
+			        		conta01.depositar(conta01, valorDeposito);
+			        	}else {
+			        		if(tipoDeposito.equals("C")) {
+			        			System.out.println("Qual o valor do depósito? ");
+					        	String valorDepositoC = entradaDados.next();
+			        			
+					        	conta01.depositar(conta01, valorDepositoC);
+					        }
+			        	}
+			        }else {
+			        	System.out.println("Bye");
+			        }
+		        		
+		        	break;
+		        case 8:
+		        	System.out.println("Transferência");
+		        	System.out.println("Deseja transferir? ");
+		        	String t = entradaDados.next().toUpperCase();
+		        	
+		        	if(t.equals("S")) {
+		        		System.out.println("Qual o valor da transferência? ");
+			        	float valorTransfer = entradaDados.nextFloat();
+			        	
+			        	conta01.transferir(conta01, conta02, valorTransfer);
+		        	}else {
+		        		System.out.println("Bye");
+		        	}
+		        	
+		        	break;
+			}	
 			
 			System.out.println("Deseja continuar? [S/N]");
 			String sair = entradaDados.next().toUpperCase();
@@ -132,6 +206,5 @@ public class Main {
 				continue;
 			}
 		}
-		
 	}
 }

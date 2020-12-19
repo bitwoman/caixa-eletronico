@@ -66,28 +66,25 @@ public class ContaCorrente extends Conta {
 /*
  * Polimorfismo do tipo sobrecarga (overload) que consiste em criar variações de um mesmo método.
  * Ou seja, mesma assinatura (quantidade de variáveis).
- * 
- * Depósito: ele pode depositar qualquer valor. Esses valores podem ser em cheque 
- * (Recebe uma String no estilo "Dezesseis reais@16,00", separadas por @); podem ser em dinheiro, 
- * no caso um valor real.
  */
 
 	
 /*
  * Sacar
- *8/
+ */
 	@Override
-	public boolean sacar(double valor) {
-		if(this.getStatusConta()) {
-			if(this.getSaldoConta() >= valor) {
-				this.setSaldoConta(this.getSaldoConta() - (valor + (valor * this.CPMF)));
-				System.out.println("Saque realizado na conta de " + this.getNomeCliente());
+	public void sacar(Conta conta, double valor) {
+//		super.sacar(conta, valor);
+		if(conta.getStatusConta()) {
+			if(conta.getSaldoConta() >= valor) {
+				conta.setSaldoConta(conta.getSaldoConta() - (valor + (valor * this.CPMF)));
+				System.out.println("Saque realizado na conta: " + conta.getNumeroConta());
 			}else {
 				System.out.println("Saldo insuficiente!");
+				System.out.println("Saldo: " + conta.getSaldoConta());
 			}
 		}else {
 			System.out.println("Conta fechada!");
 		}
-		return super.sacar(valor);
-	}*/
+	}
 }

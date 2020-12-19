@@ -5,12 +5,7 @@ public class ContaPoupanca extends Conta {
  * Atributos	
  */
 	private int diaRendimento;
-	
-//	Recursivo:
-	/*public void sacar() {
-		
-	}*/
-	
+
 	
 /*
  * To String
@@ -79,15 +74,14 @@ public class ContaPoupanca extends Conta {
 /*
  * Calcular novo saldo da conta poupança	
  */
-	public boolean apresentarNovoSaldo(double taxaRendimento) {
+	public boolean apresentarNovoSaldo(Conta conta, double taxaRendimento) {
 		Calendar hoje  = Calendar.getInstance();
 		
 		if(taxaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
-			this.setSaldoConta(this.getSaldoConta() + (this.getSaldoConta() * taxaRendimento));
+			conta.setSaldoConta(conta.getSaldoConta() + (conta.getSaldoConta() * taxaRendimento));
 			return true;
 		}else {
 			return false;
 		}
 	}
-
 }

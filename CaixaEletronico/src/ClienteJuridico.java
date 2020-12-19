@@ -40,20 +40,4 @@ public class ClienteJuridico extends Cliente {
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
-	
-/*
- * MÉTODOS PERSONALIZADOS 
- */
-	
-	public void registrarCliente() {
-		
-	}
-	
-	public void validarCnpj() {
-		
-	}
-	
-	public void consultarCnpj() {
-		
-	}
 }

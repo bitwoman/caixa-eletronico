@@ -81,28 +81,4 @@ public abstract class Cliente {
 	public void setCepCliente(long cepCliente) {
 		this.cepCliente = cepCliente;
 	}
-
-/*
- * Método personalizado: - retirada, depósito, transferência.
- *
-	public void transacao(String tipoTransacao, float valor) {
-			
-		switch (tipoTransacao) {
-
-	        case "transferir":
-	            System.out.println("Transferência");
-	            
-	           
-	            break;
-	        case "sacar":
-	            System.out.println("Saque");
-	
-	            break;
-	        case "depositar":
-	            System.out.println("Depósito");
-	            
-	            break;
-		}
-	}
-	*/	
 }
